@@ -1,0 +1,15 @@
+﻿@model List<WebTraSua_197.Models.EF.SanPham>
+
+@foreach (var it in Model)
+{
+    var url = "/chi-tiet-san-pham/" + it.MetaTitle + "-" + it.MaSanPham;
+    <div class="product-go">
+        <img class="img-responsive fashion" src="/Content/images/@it.LinkAnhSP" alt="">
+        <div class="grid-product">
+            <a href="@url" class="elit">@it.TenSanPham</a>
+            <span class=" price-in"> @it.DonGia</span>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+}
+

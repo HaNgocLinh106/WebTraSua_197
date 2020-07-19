@@ -1,0 +1,209 @@
+﻿@using WebTraSua_197.Models.EF
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var detail = (WebTraSua_197.Models.EF.SanPham)ViewBag.Detail;
+    var listDetail = (List<WebTraSua_197.Models.EF.ViewSanPham>)ViewBag.ListDetail;
+    var topping = (List<WebTraSua_197.Models.EF.Topping>)ViewBag.Topping;
+    var duong = (List<WebTraSua_197.Models.EF.Duong>)ViewBag.Duong;
+    var da = (List<WebTraSua_197.Models.EF.Da>)ViewBag.da;
+}
+
+<link rel="stylesheet" href="/Content/css/etalage.css">
+<script src="/Content/js/jquery.etalage.min.js"></script>
+<script>
+        jQuery(document).ready(function ($) {
+
+            $('#etalage').etalage({
+                thumb_image_width: 300,
+                thumb_image_height: 400,
+                source_image_width: 900,
+                source_image_height: 1200,
+                show_hint: true,
+                click_callback: function (image_anchor, instance_id) {
+                    alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
+                }
+            });
+
+        });
+</script>
+<style>
+    .textcl {
+        color: white;
+    }
+</style>
+
+<style>
+    .textcl {
+        color: white;
+    }
+</style>
+<div class="container">
+    <div class="single">
+        <div class="col-md-9 top-in-single">
+
+            <div class="col-md-5 single-top">
+                <ul id="etalage">                  
+                        <li>
+                            <a href="">       
+                                <img class="etalage_source_image img-responsive" src="~/Content/images/@detail.LinkAnhSP" alt="">
+                            </a>
+                        </li>
+                </ul>
+            </div>
+            <div class="col-md-7 single-top-in">
+
+                <div class="single-para">
+                    <h4>@detail.TenSanPham</h4>
+                    <p></p>
+                    <div class="star">
+                        @*<ul>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                                <li><i> </i></li>
+                            </ul>*@
+                        <div class="review">
+                            
+                            <a href="/User/PhanHoi">  Viết phản hồi</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                    <label class="add-to">@detail.DonGia VNĐ</label>
+                    @using (Html.BeginForm("AddItem", "Cart", new { id = detail.MaSanPham, returnURL = Request.Url.AbsoluteUri }))
+                    {
+                <div class="available">
+                    <ul>
+                        <li>
+                            Size: <select name="size" id="size">
+                                @foreach (var it in listDetail)
+                                {
+                                    <option>@it.Size - @it.Gia VNĐ</option>
+                                }
+
+                            </select>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul>
+                        <li>
+                            Topping:<select name="topping" id="topping">
+                                @foreach (var it in topping)
+                                {
+                                    <option>@it.Topping1 - @it.DonGia VNĐ</option>
+                                }
+
+                            </select>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul>
+                        <li>
+                            Đá:
+                            <select name="da" id="da">
+                                @foreach (var it in da)
+                                {
+                                    <option value="@it.Da1">@it.Da1%</option>
+                                }
+
+                            </select>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul>
+                        <li>
+                            Đường:
+                            <select name="duong" id="duong">
+                                @foreach (var it in duong)
+                                {
+                                    <option value="@it.Duong1">@it.Duong1%</option>
+                                }
+
+                            </select>
+                        </li>
+                    </ul>
+                    <br>
+                    @*<ul>
+            <li>Số lượng: <input type="number" min="0" name="SoLuong" value=""></li>
+        </ul>*@
+                </div>
+
+                        @*<a href="/them-gio-hang/@giayOd.MaGiay-@giayOd.SoLuong" class="cart ">Thêm vào giỏ hàng</a>*@
+                        @*<a href="/them-gio-hang?MaGiay=@giayOd.MaCTSP&SoLuong=1 class="cart ">Thêm vào giỏ hàng</a>*@
+                        @*@Html.ActionLink("Thêm vào giỏ hàng", "them-gio-hang", new { MaGiay = giayOd.MaGiay }, new { SoLuong = sl })*@
+                        <button type="submit" class="btn btn-fefault cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            @*<a href="/Cart/AddItem/@Model.MaOD?returnURL=@Request.RawUrl">Thêm vào giỏ</a>*@
+                            @*<a href="">Thêm vào giỏ</a>*@
+                            Thêm vào giỏ
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <div class="clearfix"> </div>
+
+            @{Html.RenderAction("ListSanPham", "SanPham");}
+
+        </div>
+        <div class="col-md-3">
+            <div class="single-bottom">
+                <h4>Mô tả</h4>
+                <ul>
+                    <li>
+
+                        <label for="brand"><span></span> Vị dịu ngọt</label>
+                    </li>
+                    <li>
+
+                        <label for="brand1"><span></span> Hòa quyện giữa vị sữa béo ngậy và lá trà thơm lừng</label>
+                    </li>
+                    <li>
+
+                        <label for="brand2"><span></span> Được nấu tỉ mỉ trong khoảng thời gian dài</label>
+                    </li>
+                    <li>
+
+                        <label for="brand3"><span></span> Ngon hơn khi uống lạnh</label>
+                    </li>
+                    <li>
+
+                        <label for="brand4"><span></span>Tốt cho sức khỏe và làn da</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="single-bottom">
+                <h4>Nguyên liệu</h4>
+                <ul>
+                    <li>
+
+                        <label for="color"><span></span> 100% từ thiên nhiên</label>
+                    </li>
+                    <li>
+
+                        <label for="color1"><span></span> Lá trà tự trồng và thu hoạch ở nông trại phía Nam</label>
+                    </li>
+                    <li>
+
+                        <label for="color2"><span></span> Sữa bò được nuôi trên đồi</label>
+                    </li>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="single-bottom">
+                <h4>Sản phẩm tương tự</h4>
+                @{Html.RenderAction("ListSanPhamLQ", "SanPham");}
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+
+
+

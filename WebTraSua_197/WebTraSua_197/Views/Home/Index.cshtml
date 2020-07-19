@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <div class="container">
+        <div class="banner-matter">
+            <h1>Ở đây có bán<span>TRÀ SỮA!</h1>
+            <div class="out">
+                <a href="/SanPham/AllSanPham" class="shop">ĐẶT HÀNG</a>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="content">
+    <div class="sport-your">
+        <!-- requried-jsfiles-for owl -->
+        <link href="/Content/css/owl.carousel.css" rel="stylesheet">
+        <script src="/Content/js/owl.carousel.js"></script>
+        <script>
+									    $(document).ready(function() {
+									      $("#owl-demo").owlCarousel({
+									        items : 5,
+									        lazyLoad : true,
+									        autoPlay : true,
+									        navigation : true,
+									        navigationText :  true,
+									        pagination : false,
+									      });
+									    });
+        </script>
+        <!-- //requried-jsfiles-for owl -->
+        <!-- start content_slider -->
+        <div class="line1">
+
+        </div>
+        <div id="example1">
+            <div id="owl-demo" class="owl-carousel text-center">
+                <div class="item">
+                    <a href="/SanPham/AllSanPham" title="image" rel="title1">
+                        <img class="img-responsive " src="/Content/images/pr3.png" alt="">
+                        <div class="run">
+
+                            <p>Hồng trà</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/SanPham/AllSanPham" title="image" rel="title1">
+                        <img class="img-responsive " src="/Content/images/sh.png" alt="">
+                        <div class="run">
+
+                            <p>MatCha</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/SanPham/AllSanPham" title="image" rel="title1">
+                        <img class="img-responsive " src="/Content/images/pr3.png" alt="">
+                        <div class="run">
+
+                            <p>Capuchino</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/SanPham/AllSanPham" title="image" rel="title1">
+                        <img class="img-responsive " src="/Content/images/sh2.png" alt="">
+                        <div class="run">
+
+                            <p>Trà cam</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/SanPham/AllSanPham" title="image" rel="title1">
+                        <img class="img-responsive " src="/Content/images/sh1.png" alt="">
+                        <div class="run">
+
+                            <p>Cacao</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h6 class="your-in">Sản phẩm</h6>
+        <div class="line2">
+
+        </div>
+    </div>
+    <!--//sreen-gallery-cursual---->
+    <div>.</div>
+    <h2 class="text-center">SẢN PHẨM ĐƯỢC YÊU THÍCH</h2>
+    <div class="content-grids">
+
+        @{Html.RenderAction("ListSanPham", "SanPham");}
+
+        <div class="clearfix"> </div>
+    </div>
+    <!---->
+
+    <div class="content-bottom">
+        <div class="col-md-8 bottom-content">
+            <script src="/Content/js/responsiveslides.min.js"></script>
+            <script>
+						$(function () {
+						  $("#slider").responsiveSlides({
+							auto: true,
+							speed: 500,
+							namespace: "callbacks",
+							pager: false,
+							 nav:true,
+						  });
+						});
+            </script>
+            <div class="slider">
+                <div class="callbacks_container">
+                    <ul class="rslides" id="slider">
+                        <li>
+                            <img src="/Content/images/g1.jpg" alt="">
+
+                        </li>
+                        <li>
+                            <img src="/Content/images/g5.jpg" alt="">
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="london">
+                    <h5>Cửa hàng của chúng tôi</h5>
+                    <p>236 Hoàng Quốc Việt</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 bottom-grid">
+            <h4>Phản hồi của khách hàng</h4>
+            @{Html.RenderAction("PhanHoi", "Home");}
+            <a href="/User/PhanHoi" class="view">Gửi phản hồi cho chúng tôi!</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+

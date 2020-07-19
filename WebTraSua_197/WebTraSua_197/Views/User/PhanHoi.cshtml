@@ -1,0 +1,53 @@
+﻿@model WebTraSua_197.Models.User.PhanHoiModel
+@{
+    ViewBag.Title = "PhanHoi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <br /><br /><h4>Phản hồi của khách hàng</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @if (ViewBag.Success != null)
+            {
+                <div class="alert alert-success">@ViewBag.Success</div>
+            }
+           
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TenNguoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.TenNguoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenNguoiDung, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+           
+            <div class="form-group">
+                @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Gửi phản hồi" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+</div>
+
+
