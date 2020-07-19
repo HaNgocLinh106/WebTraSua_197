@@ -152,6 +152,8 @@
     <Compile Include="Models\EF\ViewGH.cs" />
     <Compile Include="Models\EF\ViewSanPham.cs" />
     <Compile Include="Models\EF\WebTraSua.cs" />
+    <Compile Include="Models\Fun\CartDetailF.cs" />
+    <Compile Include="Models\Fun\CartF.cs" />
     <Compile Include="Models\Fun\DanhMucF.cs" />
     <Compile Include="Models\Fun\PhanHoiF.cs" />
     <Compile Include="Models\Fun\SanPhamF.cs" />
@@ -633,6 +635,8 @@
     <Content Include="Views\Shared\PhanHoi.cshtml" />
     <Content Include="Views\SanPham\AllSanPham.cshtml" />
     <Content Include="Views\User\PhanHoi.cshtml" />
+    <Content Include="Views\Cart\ThanhToan.cshtml" />
+    <Content Include="Views\Cart\ThanhCong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,101 @@
+﻿@using WebTraSua_197.Models.Cart
+
+@model List<CartItem>
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2 class="text-center">Đơn hàng của bạn</h2>
+<br />
+<br />
+<div class="content">
+    <div class="section group">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Mã sản phẩm</td>
+                    <td>Tên sản phẩm</td>
+                    <td>Ảnh sản phẩm</td>
+                    <td>Số lượng</td>
+
+                    <td>Đơn giá</td>
+                    <td>Thành tiền</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.SanPham.MaSanPham</td>
+                        <td>
+                            @item.SanPham.TenSanPham
+                            <p>@item.Size</p>
+                            <p>@item.Topping</p>
+                            <p>@item.Duong</p>
+                            <p>@item.Da</p>
+                        </td>
+                        <td><img src="/Content/Images/@item.SanPham.LinkAnhSP" width="150" /></td>
+                        @using (Html.BeginForm("UpdateCart", "Cart", new { @id = item.SanPham.MaSanPham }, FormMethod.Post, new { role = "form" }))
+                        {
+
+                            <td>
+                                <input type="text" name="txtQuantity" value="@item.Quantity" class="form-control" />
+                            </td>
+
+
+                            <td>@item.SanPham.DonGia.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.SanPham.DonGia.GetValueOrDefault(0) * item.Quantity + 5000).ToString("N0"))</td>
+
+                            <td>
+                                <input type="submit" value="Cập nhật" class="btn btn-link" />
+                            </td>
+
+
+
+                        }
+
+                        <td><a href="/Cart/RemoveLine/@item.SanPham.MaSanPham" data-id="@item.SanPham.MaSanPham" class="btn btn-link">Xóa</a></td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="4"></td>
+                    <td>Tổng giá trị</td>
+                    <td>
+                        @ViewBag.TongTien.ToString("N0")
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section group">
+        <div class="col-md-12">
+            @using (Html.BeginForm("ThanhToan", "Cart", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label>Người nhận</label>
+                    <input name="shipName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Điện thoại</label>
+                    <input name="mobile" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input name="address" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Hình thức thanh toán</label>
+                    <input name="hinhthuctt" class="form-control" />
+                </div>
+                <button type="submit" class="btn">Gửi đơn hàng</button>
+            }
+        </div>
+
+    </div>
+

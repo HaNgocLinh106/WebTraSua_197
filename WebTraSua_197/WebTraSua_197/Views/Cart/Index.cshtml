@@ -49,7 +49,7 @@
 
 
                                 <td>@item.SanPham.DonGia.GetValueOrDefault(0).ToString("N0")</td>
-                                <td>@((item.SanPham.DonGia.GetValueOrDefault(0) * item.Quantity + 5000).ToString("N0"))</td>
+                                <td>@((item.SanPham.DonGia.GetValueOrDefault(0) * item.Quantity + 5000* item.Quantity).ToString("N0"))</td>
 
                                 <td>
                                     <input type="submit" value="Cập nhật" class="btn btn-link" />
@@ -73,9 +73,9 @@
                 </tbody>
             </table>
 
-            <a href="/SanPham/Index" class="btn">Tiếp tục mua hàng</a>
+            <a href="/SanPham/AllSanPham" class="btn">Tiếp tục mua hàng</a>
             <a href="/Cart/Clear" class="btn">Xoá giỏ hàng</a>
-            <a href="/Cart/Payment" class="btn">Thanh toán</a>
+            <a href="/Cart/ThanhToan" class="btn">Thanh toán</a>
 
         }
         else

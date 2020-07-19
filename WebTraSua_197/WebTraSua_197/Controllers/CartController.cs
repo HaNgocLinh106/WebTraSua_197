@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebTraSua_197.Models.Cart;
+using WebTraSua_197.Models.EF;
 using WebTraSua_197.Models.Fun;
 
 namespace WebTraSua_197.Controllers
@@ -28,8 +29,6 @@ namespace WebTraSua_197.Controllers
 
             return View(list);
         }
-
-
 
         public ActionResult AddItem(long Id, string returnURL)
         {
@@ -132,6 +131,62 @@ namespace WebTraSua_197.Controllers
             cart.Clear();
             Session[CartSession] = cart;
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult ThanhToan()
+        {
+            var cart = (Cart)Session[CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = cart.Lines.ToList();
+                ViewBag.TongTien = cart.ComputeTotalValue();
+            }
+            return View(list);
+        }
+        [HttpPost]
+        public ActionResult ThanhToan(string shipName, string mobile, string address, string hinhthuctt)
+        {
+
+            var giohang = new GioHang();
+            giohang.NgayThang = DateTime.Now;
+            giohang.DiaChi = address;
+            giohang.SDT = mobile;
+            giohang.TenNguoiDung = shipName;
+            giohang.HinhThucThanhToan = hinhthuctt;
+
+            try
+            {
+                var id = new CartF().Insert(giohang);
+                var cart = (Cart)Session[CartSession];
+                var ctghF = new CartDetailF();     
+
+                foreach (var it in cart.Lines)
+                {
+                    var ctgh = new ChiTietGioHang();
+                    ctgh.MaGioHang = id;
+                    ctgh.MaSanPham = it.SanPham.MaSanPham;
+                    ctgh.Duong = it.Duong;
+                    ctgh.Da = it.Da;
+                    ctgh.Topping = it.Topping;
+                    ctgh.DonGia = it.SanPham.DonGia;
+                    ctgh.SoLuong = it.Quantity;
+                    ctghF.Insert(ctgh);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Redirect("/loi-thanh-toan");
+            }
+            return Redirect("/hoan-thanh");
+
+        }
+
+
+        public ActionResult ThanhCong()
+        {
+            return View();
         }
     }
 }

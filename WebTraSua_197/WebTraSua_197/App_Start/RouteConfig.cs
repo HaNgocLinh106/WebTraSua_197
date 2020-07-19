@@ -25,6 +25,19 @@ namespace WebTraSua_197
       defaults: new { controller = "SanPham", action = "ChiTietSanPham", id = UrlParameter.Optional },
       namespaces: new[] { "WebTraSua_197.Controllers" }
   );
+            routes.MapRoute(
+    name: "Thanh toán",
+    url: "thanh-toan",
+    defaults: new { controller = "Cart", action = "ThanhToan", id = UrlParameter.Optional },
+    namespaces: new[] { "WebTraSua_197.Controllers" }
+);
+
+            routes.MapRoute(
+         name: "Thanh toán thành công",
+         url: "hoan-thanh",
+         defaults: new { controller = "Cart", action = "ThanhCong", id = UrlParameter.Optional },
+         namespaces: new[] { "WebTraSua_197.Controllers" }
+     );
 
             routes.MapRoute(
                 name: "Default",

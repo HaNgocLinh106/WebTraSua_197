@@ -76,7 +76,7 @@ namespace WebTraSua_197.Models.Cart
 
         public int? ComputeTotalValue()
         {
-            return lineCollection.Sum(e => e.SanPham.DonGia * e.Quantity);
+            return lineCollection.Sum(e => e.SanPham.DonGia * e.Quantity + 5000*e.Quantity);
 
         }
         public int? ComputeTotalProduct()
