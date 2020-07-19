@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebTraSua_197.Common
+<!DOCTYPE html>
 <html>
 <head>
     <title>Trà sữa 21</title>
@@ -34,10 +35,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="header-top">
             <div class="header-grid">
-                <ul class="header-in">
-                    <li><a href="/User/Login">Đăng nhập   </a> </li>
-                    <li><a href="/User/Register">Đăng ký   </a> </li>
-                </ul>
+
+                @{
+                    var session = (UserLogin)Session[WebTraSua_197.Common.CommonConstants.USER_SESSION];
+                }
+                @if (session == null)
+                {
+                    <ul class="header-in">
+                        <li><a href="/User/Login">Đăng nhập   </a> </li>
+                        <li><a href="/User/Register">Đăng ký   </a> </li>
+                    </ul>
+                }
+                else
+                {
+                    var link = "/tai-khoan/";
+                    <ul class="header-in">
+                        <li><a href="@link">Tài khoản</a> </li>
+                        <li>@Html.ActionLink("Đăng xuất", "Logout", "User")</li>
+                    </ul>
+
+                }
+
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
                         <form method="post" action="/Home/TimKiem">

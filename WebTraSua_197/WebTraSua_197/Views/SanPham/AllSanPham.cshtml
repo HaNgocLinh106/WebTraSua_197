@@ -1,9 +1,11 @@
-﻿@model List<WebTraSua_197.Models.EF.SanPham>
-@using WebTraSua_197.Models.EF
+﻿@using WebTraSua_197.Models.EF
+@using PagedList.Mvc
+@model PagedList.IPagedList<WebTraSua_197.Models.EF.SanPham>
 @{
     ViewBag.Title = "SanPham";
     Layout = "~/Views/Shared/_Layout.cshtml";
-   
+    var listAllSP = (List<WebTraSua_197.Models.EF.SanPham>)ViewBag.ListAllSP;
+
 }
 
 <style>
@@ -36,6 +38,7 @@
 
     </div>
 </div>
+<li class="page-item">@Html.PagedListPager(Model, page => Url.Action("AllSanPham", new { page }))</li>
 
 
 

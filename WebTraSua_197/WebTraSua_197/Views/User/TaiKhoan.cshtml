@@ -1,0 +1,55 @@
+﻿@model List<WebTraSua_197.Models.EF.ViewGH>
+@{
+    ViewBag.Title = "TaiKhoan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2 class="text-center">Lịch sử mua hàng</h2>
+<br />
+<br />
+<br />
+<div class="content">
+    <div class="section group">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Ngày tháng</td>
+                    <td>Tên sản phẩm</td>
+                    <td>Ảnh sản phẩm</td>
+                    <td>Số lượng</td>
+
+                    <td>Đơn giá</td>
+                    <td>Thành tiền</td>
+                    <td>Hình thức thanh toán</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NgayThang</td>
+                        <td>
+                            @item.TenSanPham
+                            <p>Size: @item.Size</p>
+                            <p>Đường: @item.Duong %</p>
+                            <p>Đá: @item.Da %</p>
+                            <p>Topping: @item.Topping</p>   
+                        </td>
+                        <td><img src="/Content/Images/@item.LinkAnhSP" width="150" /></td>
+                        <td>@item.SoLuong</td>
+                        <td>@item.DonGia</td>
+                        <td>@(item.DonGia.GetValueOrDefault(0) * item.SoLuong + 5000*item.SoLuong)</td>
+                        <td>@item.HinhThucThanhToan</td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+

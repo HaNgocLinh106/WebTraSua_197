@@ -81,3 +81,7 @@ D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\obj\Debug\WebTra
 D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\obj\Debug\WebTraSua_197.csproj.CopyComplete
 D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\obj\Debug\WebTraSua_197.dll
 D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\obj\Debug\WebTraSua_197.pdb
+D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\bin\PagedList.dll
+D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\bin\PagedList.Mvc.dll
+D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\bin\PagedList.xml
+D:\Kì 2 năm 3\CNWeb\WebTraSua_197\WebTraSua_197\WebTraSua_197\bin\PagedList.Mvc.xml

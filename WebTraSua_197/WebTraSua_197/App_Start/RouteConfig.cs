@@ -38,12 +38,19 @@ namespace WebTraSua_197
          defaults: new { controller = "Cart", action = "ThanhCong", id = UrlParameter.Optional },
          namespaces: new[] { "WebTraSua_197.Controllers" }
      );
+            routes.MapRoute(
+            name: "Tài khoản",
+            url: "tai-khoan",
+            defaults: new { controller = "User", action = "TaiKhoan", id = UrlParameter.Optional },
+            namespaces: new[] { "WebTraSua_197.Controllers" }
+        );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

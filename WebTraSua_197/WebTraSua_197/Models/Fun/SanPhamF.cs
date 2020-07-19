@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebTraSua_197.Models.EF;
+using PagedList;
 
 namespace WebTraSua_197.Models.Fun
 {
@@ -60,10 +61,15 @@ namespace WebTraSua_197.Models.Fun
             return db.Das.ToList();
         }
 
-        public List<SanPham> TimKiemSP(string TenSP)
+        public List<SanPham> TimKiemSP(string search)
         {
-            return db.SanPhams.Where(x => x.TenSanPham.Contains(TenSP)).ToList();
+            return db.SanPhams.Where(x => x.TenSanPham.Contains(search) || x.DonGia.ToString() == search || x.MoTa.Contains(search)).ToList();
         }
-        
+
+        public IEnumerable<SanPham> ListAllPaging(int page, int pageSize)
+        {
+            return db.SanPhams.OrderByDescending(x => x.DonGia).ToPagedList(page, pageSize);
+        }
+
     }
 }

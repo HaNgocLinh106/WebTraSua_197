@@ -21,7 +21,11 @@ namespace WebTraSua_197.Models.Fun
             db.SaveChanges();
             return entity.MaNguoiDung;
         }
-       
+        public List<ViewGH> GHUser()
+        {
+            
+            return db.ViewGHs.ToList();
+        }
 
         public bool Update(NguoiDung entity)
         {

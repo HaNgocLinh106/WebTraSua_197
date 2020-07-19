@@ -16,9 +16,10 @@ namespace WebTraSua_197.Controllers
             ViewBag.SanPham = new DanhMucF().ListAllSP(danhmuc.MaDanhMuc);
             return View(MaDanhMuc);
         }
-        public ActionResult AllSanPham()
+        public ActionResult AllSanPham(int page = 1, int pageSize = 3)
         {
-            var model = new SanPhamF().ListAllSP();
+            var model = new SanPhamF().ListAllPaging(page, pageSize);
+            ViewBag.ListAllSP = new SanPhamF().ListAllSP();
             return View(model);
         }
         [ChildActionOnly]

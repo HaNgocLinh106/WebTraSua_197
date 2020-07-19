@@ -116,5 +116,16 @@ namespace WebTraSua_197.Controllers
             }
             return View(model);
         }
+         public ActionResult TaiKhoan()
+        {
+            var model = new UserF().GHUser();
+            return View(model);
+        }
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
