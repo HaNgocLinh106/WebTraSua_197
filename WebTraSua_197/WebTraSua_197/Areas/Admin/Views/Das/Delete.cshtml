@@ -1,0 +1,33 @@
+﻿@model WebTraSua_197.Models.EF.Da
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có chắc muốn xóa?</h3>
+<div>
+    <h4>Da</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Mức đá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Da1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Danh sách mức đá", "Index")
+        </div>
+    }
+</div>

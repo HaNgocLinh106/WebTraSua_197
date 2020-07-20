@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     var detail = (WebTraSua_197.Models.EF.SanPham)ViewBag.Detail;
-    var listDetail = (List<WebTraSua_197.Models.EF.ViewSanPham>)ViewBag.ListDetail;
+    var listDetail = (List<WebTraSua_197.Models.EF.Size>)ViewBag.ListDetail;
     var topping = (List<WebTraSua_197.Models.EF.Topping>)ViewBag.Topping;
     var duong = (List<WebTraSua_197.Models.EF.Duong>)ViewBag.Duong;
     var da = (List<WebTraSua_197.Models.EF.Da>)ViewBag.da;
@@ -82,7 +82,7 @@
                             Size: <select name="size" id="size">
                                 @foreach (var it in listDetail)
                                 {
-                                    <option>@it.Size - @it.Gia VNĐ</option>
+                                    <option>@it.Size1 - @it.Gia VNĐ</option>
                                 }
 
                             </select>

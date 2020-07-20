@@ -1,0 +1,27 @@
+﻿@model WebTraSua_197.Models.EF.Da
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sửa</h2>
+
+<div>
+    <h4>Mức đá</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mức đá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Da1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDa }) |
+    @Html.ActionLink("Danh sách mức đá", "Index")
+</p>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebTraSua_197.Models.EF.Da>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách mức đá</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Mức đá
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Da1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaDa }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaDa }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaDa })
+        </td>
+    </tr>
+}
+
+</table>

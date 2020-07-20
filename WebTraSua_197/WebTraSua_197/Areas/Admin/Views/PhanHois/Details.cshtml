@@ -1,0 +1,43 @@
+﻿@model WebTraSua_197.Models.EF.PhanHoi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhanHoi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNguoiPhanHoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNguoiPhanHoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayPhanHoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayPhanHoi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhanHoi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

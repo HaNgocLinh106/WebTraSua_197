@@ -22,10 +22,10 @@ namespace WebTraSua_197.Models.Fun
         {
             return db.SanPhams.Find(MaSanPham);
         }
-        public List<ViewSanPham> ListDetail (long MaSanPham)
+        public List<Size> ListDetail (long MaSanPham)
         {
             var sp = db.SanPhams.Find(MaSanPham);
-            return db.ViewSanPhams.Where(x => x.MaSanPham == sp.MaSanPham).ToList();
+            return db.Sizes.Where(x => x.MaSanPham == sp.MaSanPham).ToList();
         }
 
         public SanPham FindEntity(long MaSanPham)

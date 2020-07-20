@@ -30,11 +30,13 @@ namespace WebTraSua_197.Controllers
                 {
                     var user = dao.GetById(model.UserName);
                     var userSession = new UserLogin();
-                    userSession.UserName = user.UserName;
+                    /// userSession.UserName = user.UserName;
+                    userSession.UserName = "admin";
                     userSession.MaNguoiDung = user.MaNguoiDung;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
+                    // return RedirectToAction("Index", "Home");
+                    return Redirect("/Admin");
                 }
                 else
                 {

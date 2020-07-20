@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebTraSua_197.Models.EF.ChiTietGioHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GioHang.HinhThucThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SanPham.TenSanPham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Da)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topping)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioHang.HinhThucThanhToan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Da)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topping)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaChiTietGioHang }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaChiTietGioHang }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaChiTietGioHang })
+        </td>
+    </tr>
+}
+
+</table>
